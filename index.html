@@ -1,44 +1,197 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>演唱视频合集</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        .video-container {
-            margin: 20px;
-            text-align: center;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
         }
+        
+        body {
+            background: linear-gradient(135deg, #f9f9fb 0%, #f0f2f5 100%);
+            min-height: 100vh;
+            padding: 30px 20px;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* 标题设计 - 添加音符元素 */
+        .header {
+            text-align: center;
+            margin: 0 auto 40px;
+            padding: 20px 0;
+            position: relative;
+        }
+        
+        .header h1 {
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: #1d1d1f;
+            display: inline-block;
+            position: relative;
+            padding: 0 50px;
+        }
+        
+        .header h1:before,
+        .header h1:after {
+            content: '\f001';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #ff2d55;
+            font-size: 1.8rem;
+            animation: pulse 2s infinite;
+        }
+        
+        .header h1:before {
+            left: 0;
+        }
+        
+        .header h1:after {
+            right: 0;
+        }
+        
+        /* 视频卡片 - 轻微增强 */
+        .video-container {
+            background: #ffffff;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+            padding: 25px;
+            border: 1px solid rgba(0, 0, 0, 0.03);
+            position: relative;
+        }
+        
+        .video-container h2 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #1d1d1f;
+            display: flex;
+            align-items: center;
+        }
+        
+        .video-container h2:before {
+            content: '\f001';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            color: #ff9500;
+            margin-right: 12px;
+            font-size: 1.3rem;
+        }
+        
         video {
-            width: 80%;
+            width: 100%;
             max-width: 600px;
-            outline: none;
+            display: block;
+            margin: 0 auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+        
+        /* 底部设计 */
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            color: #86868b;
+            font-size: 0.95rem;
+            padding: 20px;
+        }
+        
+        .footer p {
+            margin: 5px 0;
+        }
+        
+        /* 动画效果 */
+        @keyframes pulse {
+            0% { transform: translateY(-50%) scale(1); }
+            50% { transform: translateY(-50%) scale(1.1); }
+            100% { transform: translateY(-50%) scale(1); }
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+                padding: 0 40px;
+            }
+            
+            .header h1:before,
+            .header h1:after {
+                font-size: 1.5rem;
+            }
+            
+            .video-container {
+                padding: 20px;
+            }
+            
+            .video-container h2 {
+                font-size: 1.3rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 1.7rem;
+                padding: 0 30px;
+            }
+            
+            .header h1:before,
+            .header h1:after {
+                font-size: 1.2rem;
+            }
+            
+            .video-container {
+                padding: 18px;
+            }
         }
     </style>
 </head>
 <body>
-    
-    <h1>扫码观看视频</h1>
-     <div class="video-container">
-        <h2>《转屋夸》演唱视频</h2>
-        <video controls>
-            <source src="./《转屋夸》演唱视频.mp4" type="video/mp4">
-        </video>
+    <div class="container">
+        <div class="header">
+            <h1>扫码观看视频</h1>
+        </div>
+        
+        <div class="video-container">
+            <h2>《转屋夸》演唱视频</h2>
+            <video controls>
+                <source src="./《hakka客家》演唱视频.mp4" type="video/mp4">
+                您的浏览器不支持视频播放
+            </video>
+        </div>
+        
+        <div class="video-container">
+            <h2>《hakka客家》观众互动</h2>
+            <video controls>
+                <source src="./《hakka客家》观众互动.mp4" type="video/mp4">
+            </video>
+        </div>
+        
+        <div class="video-container">
+            <h2>《hakka客家》演唱视频</h2>
+            <video controls>
+                <source src="./《转屋夸》演唱视频.mp4" type="video/mp4">
+            </video>
+        </div>
+        
+        <div class="footer">
+            <p>使用手机相机扫描二维码即可观看视频</p>
+            <p>演唱视频合集 &copy; 2023</p>
+        </div>
     </div>
-       <div class="video-container">
-        <h2>《hakka客家》演唱视频</h2>
-        <video controls>
-            <source src="./《hakka客家》演唱视频.mp4" type="video/mp4">
-            您的浏览器不支持视频播放
-        </video>
-    </div>
- 
-     <div class="video-container">
-        <h2>《hakka客家》观众互动</h2>
-        <video controls>
-            <source src="./《hakka客家》观众互动.mp4" type="video/mp4">
-        </video>
-    </div>
-   
-    
-   
 </body>
 </html>
